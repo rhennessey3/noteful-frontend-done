@@ -15,7 +15,7 @@ export default class AddFolder extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const folder = {
-      name: e.target['folder-name'].value
+      title: e.target['folder-title'].value
     }
     fetch(`${config.API_ENDPOINT}/folders`, {
       method: 'POST',
@@ -44,10 +44,10 @@ export default class AddFolder extends Component {
         <h2>Create a folder</h2>
         <NotefulForm onSubmit={this.handleSubmit}>
           <div className='field'>
-            <label htmlFor='folder-name-input'>
+            <label htmlFor='folder-title-input'>
               Name
             </label>
-            <input type='text' id='folder-name-input' name='folder-name' />
+            <input type='text' id='folder-title-input' name='folder-title' />
           </div>
           <div className='buttons'>
             <button type='submit'>
