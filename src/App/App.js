@@ -11,11 +11,19 @@ import ApiContext from '../ApiContext'
 import config from '../config'
 import './App.css'
 
+
 class App extends Component {
   state = {
     notes: [],
     folders: [],
+    hasError: false
   };
+
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { hasError: true }
+  }
+
 
   componentDidMount() {
     Promise.all([
@@ -143,6 +151,7 @@ class App extends Component {
             </h1>
           </header>
           <main className='App__main'>
+            {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
             {this.renderMainRoutes()}
           </main>
         </div>

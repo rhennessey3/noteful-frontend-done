@@ -3,6 +3,7 @@ import NotefulForm from '../NotefulForm/NotefulForm'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './AddFolder.css'
+import PropTypes from 'prop-types'
 
 export default class AddFolder extends Component {
   static defaultProps = {
@@ -10,6 +11,11 @@ export default class AddFolder extends Component {
       push: () => { }
     },
   }
+
+  static propTypes = {
+   history: PropTypes.any
+ }
+
   static contextType = ApiContext;
 
   handleSubmit = e => {
@@ -47,7 +53,7 @@ export default class AddFolder extends Component {
             <label htmlFor='folder-title-input'>
               Name
             </label>
-            <input type='text' id='folder-title-input' name='folder-title' />
+            <input type='text' id='folder-title-input' name='folder-title' required />
           </div>
           <div className='buttons'>
             <button type='submit'>
