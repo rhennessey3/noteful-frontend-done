@@ -13,7 +13,7 @@ export default class AddFolder extends Component {
   }
 
   static propTypes = {
-   history: PropTypes.any
+   history: PropTypes.any.isRequired
  }
 
   static contextType = ApiContext;

@@ -13,7 +13,10 @@ export default class Note extends React.Component {
   }
 
   static propTypes = {
-  onDeleteNote: PropTypes.any
+    onDeleteNote: PropTypes.any.isRequired, 
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    modified: PropTypes.string
 }
 
   static contextType = ApiContext;

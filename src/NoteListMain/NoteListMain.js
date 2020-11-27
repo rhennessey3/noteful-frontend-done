@@ -17,14 +17,11 @@ export default class NoteListMain extends React.Component {
 
 
   static propTypes = {
-    match: {
-      params:
-        {folderId:PropTypes.string}
-    } 
+    match: PropTypes.shape({
+      params: PropTypes.shape(
+        { folderId: PropTypes.string })
+    }),
   }
-
-
-
 
 
   static contextType = ApiContext

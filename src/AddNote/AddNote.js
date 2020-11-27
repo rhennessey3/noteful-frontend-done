@@ -14,7 +14,7 @@ export default class AddNote extends Component {
 
 
   static propTypes = {
-    history: PropTypes.any
+    history: PropTypes.any.isRequired
   }
   static contextType = ApiContext;
 
@@ -65,7 +65,9 @@ export default class AddNote extends Component {
             <label htmlFor='note-content-input'>
               Content
             </label>
-            <textarea id='note-content-input' name='note-content' />
+            <textarea id='note-content-input' name='note-content' required >
+
+            </textarea>
           </div>
           <div className='field'>
             <label htmlFor='note-folder-select'>

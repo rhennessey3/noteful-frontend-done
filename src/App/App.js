@@ -10,21 +10,17 @@ import AddNote from '../AddNote/AddNote'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './App.css'
+import ErrorBoundary from '../Errorboundary/ErrorBoundary'
 
 
 class App extends Component {
   state = {
     notes: [],
     folders: [],
-    hasError: false
+    
   };
 
-  static getDerivedStateFromError(error) {
-    console.error(error)
-    return { hasError: true }
-  }
-
-
+ 
   componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/notes`),
@@ -139,6 +135,7 @@ class App extends Component {
     }
     return (
       <ApiContext.Provider value={value}>
+        <ErrorBoundary>
         <div className='App'>
           <nav className='App__nav'>
             {this.renderNavRoutes()}
@@ -151,10 +148,11 @@ class App extends Component {
             </h1>
           </header>
           <main className='App__main'>
-            {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
+            
             {this.renderMainRoutes()}
           </main>
-        </div>
+          </div>
+        </ErrorBoundary>
       </ApiContext.Provider>
     )
   }

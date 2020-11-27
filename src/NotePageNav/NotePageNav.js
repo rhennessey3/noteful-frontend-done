@@ -17,10 +17,10 @@ export default class NotePageNav extends React.Component {
   }
 
   static propTypes = {
-    match: {
-      params:
-        { NoteId: PropTypes.string }
-    },
+    match: PropTypes.shape( {
+      params: PropTypes.shape(
+        { noteId: PropTypes.string })
+    }),
     history: PropTypes.any
   }
   
